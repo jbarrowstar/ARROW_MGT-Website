@@ -1,3 +1,4 @@
+// src/App.jsx
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './layouts/Layout';
@@ -18,7 +19,7 @@ import DataCenterPage from './pages/projects/DataCenterPage';
 import PharmaceuticalPage from './pages/projects/PharmaceuticalPage';
 import ConstructionPage from './pages/projects/ConstructionPage';
 
-// Service pages (one file per service under src/pages/services/)
+// Service pages
 import CantileverScaffolding from './pages/services/CantileverScaffolding';
 import AccessTowerScaffolding from './pages/services/AccessTowerScaffolding';
 import HangingScaffolding from './pages/services/HangingScaffolding';
@@ -27,17 +28,18 @@ import IndependentTowerScaffold from './pages/services/IndependentTowerScaffold'
 import ExternalPerimeterScaffolding from './pages/services/ExternalPerimeterScaffolding';
 import MechanicalEngineering from './pages/services/MechanicalEngineering';
 
-// ✅ ScrollToTop component
+// ScrollToTop component
 import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   return (
-    <Router>
+    // IMPORTANT: basename must match the repo path used by GitHub Pages (no trailing slash)
+    // Example: https://jbarrowstar.github.io/ARROW_MGT-Website/  -> basename="/ARROW_MGT-Website"
+    <Router basename="/ARROW_MGT-Website">
       <ScrollToTop /> {/* ensures scroll resets on route change */}
 
       <Routes>
         <Route path="/" element={<Layout />}>
-
           {/* Main pages */}
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
@@ -62,7 +64,6 @@ export default function App() {
           <Route path="projects/data-center" element={<DataCenterPage />} />
           <Route path="projects/pharmaceutical" element={<PharmaceuticalPage />} />
           <Route path="projects/construction" element={<ConstructionPage />} />
-
         </Route>
       </Routes>
     </Router>

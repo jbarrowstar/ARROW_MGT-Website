@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),
   ],
-  base: "/ARROW_MGT-Website/",
+  base: '/ARROW_MGT-Website/',
 })
